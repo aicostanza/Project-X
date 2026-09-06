@@ -28,22 +28,22 @@ Statement of the Problem
 4.	Players lack a centralized way to observe their development, performance trends, achievements, rankings, and other forms of progression over time.
 5.	In game cosmetics and other collectibles are often managed within individual games, making it difficult to view, organize, and track collections through a unified system.
 
-Project Objectives
+## Project Objectives (MISSING)
 
-Project Vision
-	Project X envisions to become a unified gaming platform that changes how players interact with, understand, and manage the game they play. It aims to establish a single ecosystem where players can access the tools, knowledge, insights, and game-related infos that they need starting with League of Legends and eventually expanding towards multiple games.
+## Project Vision
+Project X envisions to become a unified gaming platform that changes how players interact with, understand, and manage the game they play. It aims to establish a single ecosystem where players can access the tools, knowledge, insights, and game-related infos that they need starting with League of Legends and eventually expanding towards multiple games.
 
-Target Users
-	Project X aims to design a platform for gamers of all levels, ranging from casual games who just loves to game for fun or games for relaxing, to competitive gamers seeking deeper performance insights. It also targets beginners collectors and completionists who wants a centralized platform for accessing game information, tracking progression, managing in-game collections, and utilizing various tools.
+## Target Users
+Project X aims to design a platform for gamers of all levels, ranging from casual games who just loves to game for fun or games for relaxing, to competitive gamers seeking deeper performance insights. It also targets beginners collectors and completionists who wants a centralized platform for accessing game information, tracking progression, managing in-game collections, and utilizing various tools.
 User Needs
 
 
-Core Product Concepts
+## Core Product Concepts (MISSING)
 
-Project Scope
-In-scope/Out-scope
-Constraints and Assumptions
+## Project Scope (MISSING)
+### In-scope/Out-scope
+### Constraints and Assumptions
 
-Success Criteria
+## Success Criteria
 
-Future Vision
+## Future Vision
