@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <label for="server">Select Server:</label>
+        <select name="server" id="server">
+            <option value="sg2">SEA Server</option>
+        </select>
+
+        <input type="text" name="gameName" id="gameName" placeholder="Enter your In-game Name"> <!-- Text Box for IGN -->
+        <input type="text" name="tagLine" id="tagLine" placeholder="Enter your TagLine"> <!-- Text Box for IGN -->
+
+        <button id="search">Search</button>
+
+        <p id="GameName"></p> 
+        <p id="TagLine"></p>
+        <img id ="profileIcon" alt = "league icon" hidden>
+        <p id="profileIconId"></p>        
+        <p id="summonerLevel"></p>
+
+        <script>
+        document.getElementById("search").addEventListener("click", function () {
+
+        const gameName = document.getElementById("gameName").value;
+        const tagLine = document.getElementById("tagLine").value;
+        const server = document.getElementById("server").value;
+
+        fetch(`http://localhost:2106/riot/account?gameName=${gameName}&tagLine=${tagLine}&server=${server}`)
+        .then(response => {
+           console.log(response.status);
+           return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                
+                document.getElementById("TagLine").textContent = data.tagLine
+                document.getElementById("GameName").textContent = data.gameName
+                document.getElementById("profileIconId").textContent = data.profileIconId;
+                document.getElementById("profileIcon").src = `https://ddragon.leagueoflegends.com/cdn/16.17.1/img/profileicon/${data.profileIconId}.png`;
+                document.getElementById("summonerLevel").textContent =data.summonerLevel;
+
+                document.getElementById("profileIcon").hidden = false;
+            });
+        });
+        </script>
+    </body>
+</html>
