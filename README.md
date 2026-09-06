@@ -8,11 +8,17 @@ The proposed project will be given the name “Project X” due to the uncertain
 ## Purpose of the Project
 
 Project X also aims to serve as a centralized game database for in-game collections and content, including characters, cosmetics, items, achievements, equipment, and other game -specific collectibles. In this phase will solely focus on League of Legends, incorporating features such as:
+
 •	Player statistics
+
 •	Individual match history
+
 •	Performance Analysis
+
 •	Champion information
+
 •	Cosmetic Collection.
+
 The project sought to establish itself on League of Legends, although it is designed with a broader vision of eventually supporting multiple games, succeeding the vision of unified gaming companion where players can learn, analyze, track, collect, explore, and understand their games through a single platform.
 Statement of the Problem
 
