@@ -1,14 +1,12 @@
 # Project X
 
-[Project Overview]
-Project Name
+Project X is a centralized all-in-one platform where you can find all tools, game information, performance insights, and in-game collections into one place. (SD)
+
+To create a centralized platform for all-in-one collection of tools, info, resources, and game-related content designed to support and improve overall gaming experiences. Instead of relying on multiple applications, websites, services, Project X aims to consolidate these functions into a single platform where players can learn game mechanics, access game information, track their progression, analyze performances, identify areas to improve, and to better understand the games they play.
 The proposed project will be given the name “Project X” due to the uncertainty and difficulty of assigning a permanent name to a project that holds such a broad and continuously evolving vision. Primarily, the project was conceptualized under the names “Gamebase” and later “Playbase,” referencing an individual's willingness and ability to engage with multiple games through a single centralized platform.
 
-Short Description
-Project X is a centralized all-in-one platform where you can find all tools, game information, performance insights, and in-game collections into one place. 
+## Purpose of the Project
 
-Purpose of the Project
-To create a centralized platform for all-in-one collection of tools, info, resources, and game-related content designed to support and improve overall gaming experiences. Instead of relying on multiple applications, websites, services, Project X aims to consolidate these functions into a single platform where players can learn game mechanics, access game information, track their progression, analyze performances, identify areas to improve, and to better understand the games they play.
 Project X also aims to serve as a centralized game database for in-game collections and content, including characters, cosmetics, items, achievements, equipment, and other game -specific collectibles. In this phase will solely focus on League of Legends, incorporating features such as:
 •	Player statistics
 •	Individual match history
