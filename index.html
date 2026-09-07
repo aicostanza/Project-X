@@ -17,6 +17,20 @@
         <p id="profileIconId"></p>        
         <p id="summonerLevel"></p>
 
+        <p id="SDQueue"></p>
+        <p id="SDTier"></p>
+        <p id="SDRank"></p>
+        <p id="SDLP"></p>
+        <p id="SDW"></p>
+        <p id="SDL"></p>
+
+        <p id="CLASSICQueue"></p>
+        <p id="CLASSICTier"></p>
+        <p id="CLASSICRank"></p>
+        <p id="CLASSICLP"></p>
+        <p id="CLASSICW"></p>
+        <p id="CLASSICL"></p>        
+
         <script>
         document.getElementById("search").addEventListener("click", function () {
 
@@ -36,7 +50,21 @@
                 document.getElementById("GameName").textContent = data.gameName
                 document.getElementById("profileIconId").textContent = data.profileIconId;
                 document.getElementById("profileIcon").src = `https://ddragon.leagueoflegends.com/cdn/16.17.1/img/profileicon/${data.profileIconId}.png`;
+
                 document.getElementById("summonerLevel").textContent =data.summonerLevel;
+                document.getElementById("SDQueue").textContent =data.queueType;
+                document.getElementById("SDTier").textContent =data.tier;
+                document.getElementById("SDRank").textContent =data.rank;
+                document.getElementById("SDLP").textContent =data.leaguePoints;
+                document.getElementById("SDW").textContent =data.wins;
+                document.getElementById("SDL").textContent =data.losses;
+                
+                document.getElementById("CLASSICQueue").textContent =data.classicQueue;
+                document.getElementById("CLASSICTier").textContent =data.classicTier;
+                document.getElementById("CLASSICRank").textContent =data.classicRank;
+                document.getElementById("CLASSICLP").textContent =data.classicLeaguePoints;
+                document.getElementById("CLASSICW").textContent =data.classicWins;
+                document.getElementById("CLASSICL").textContent =data.classicLosses;
 
                 document.getElementById("profileIcon").hidden = false;
             });
