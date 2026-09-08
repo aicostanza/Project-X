@@ -43,7 +43,13 @@
         <p id="CLASSICRank"></p>
         <p id="CLASSICLP"></p>
         <p id="CLASSICW"></p>
-        <p id="CLASSICL"></p>        
+        <p id="CLASSICL"></p>     
+        
+        <div id = "matchHistory">
+            <h4>Match History</h4>
+            <ul id="matchList"></ul>
+        </div>
+
 
         <script>
         document.getElementById("search").addEventListener("click", function () {
@@ -110,6 +116,15 @@
                     };
 
                 document.getElementById("profileIcon").hidden = false;
+                const matchList = document.getElementById("matchList");
+                const match = document.createElement("p");
+                    match.innerHTML = data.matchHistory;
+                        data.matchHistory.forEach(matchId => {
+                            const matchItem = document.createElement("li");
+                            matchItem.textContent = matchId;
+                            matchList.appendChild(matchItem);
+                        });
+                
             });
         });
         </script>
