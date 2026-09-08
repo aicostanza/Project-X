@@ -17,12 +17,26 @@
         <p id="profileIconId"></p>        
         <p id="summonerLevel"></p>
 
-        <p id="SDQueue"></p>
-        <p id="SDTier"></p>
-        <p id="SDRank"></p>
-        <p id="SDLP"></p>
-        <p id="SDW"></p>
-        <p id="SDL"></p>
+        <p id="SRQueue"></p>
+        <p id="SRTier"></p>
+        <p id="SRRank"></p>
+        <p id="SRLP"></p>
+        <p id="SRW"></p>
+        <p id="SRL"></p>
+
+        <p id="FLEXQueue"></p>
+        <p id="FLEXTier"></p>
+        <p id="FLEXTier"></p>
+        <p id="FLEXLP"></p>
+        <p id="FLEXW"></p>
+        <p id="FLEXL"></p>
+
+        <p id="FIVEQueue"></p>
+        <p id="FIVETier"></p>
+        <p id="FIVERank"></p>
+        <p id="FIVELP"></p>
+        <p id="FIVEW"></p>
+        <p id="FIVEL"></p>
 
         <p id="CLASSICQueue"></p>
         <p id="CLASSICTier"></p>
@@ -50,21 +64,50 @@
                 document.getElementById("GameName").textContent = data.gameName
                 document.getElementById("profileIconId").textContent = data.profileIconId;
                 document.getElementById("profileIcon").src = `https://ddragon.leagueoflegends.com/cdn/16.17.1/img/profileicon/${data.profileIconId}.png`;
-
                 document.getElementById("summonerLevel").textContent =data.summonerLevel;
-                document.getElementById("SDQueue").textContent =data.queueType;
-                document.getElementById("SDTier").textContent =data.tier;
-                document.getElementById("SDRank").textContent =data.rank;
-                document.getElementById("SDLP").textContent =data.leaguePoints;
-                document.getElementById("SDW").textContent =data.wins;
-                document.getElementById("SDL").textContent =data.losses;
+
+                if (data.SR) {
+                    document.getElementById("SRQueue").textContent = data.SR.queueType;
+                    document.getElementById("SRTier").textContent = data.SR.tier;
+                    document.getElementById("SRRank").textContent = data.SR.rank;
+                    document.getElementById("SRLP").textContent = data.SR.leaguePoints;
+                    document.getElementById("SRW").textContent = data.SR.wins;
+                    document.getElementById("SRL").textContent = data.SR.losses;
+                    } else {
+                    document.getElementById("SRQueue").textContent = "Unranked Solo/Duo";
+                    };
                 
-                document.getElementById("CLASSICQueue").textContent =data.classicQueue;
-                document.getElementById("CLASSICTier").textContent =data.classicTier;
-                document.getElementById("CLASSICRank").textContent =data.classicRank;
-                document.getElementById("CLASSICLP").textContent =data.classicLeaguePoints;
-                document.getElementById("CLASSICW").textContent =data.classicWins;
-                document.getElementById("CLASSICL").textContent =data.classicLosses;
+                if (data.FLEX) {
+                    document.getElementById("FLEXQueue").textContent = data.FLEX.queueType;
+                    document.getElementById("FLEXTier").textContent = data.FLEX.tier;
+                    document.getElementById("FLEXLP").textContent = data.FLEX.leaguePoints;
+                    document.getElementById("FLEXW").textContent = data.FLEX.wins;
+                    document.getElementById("FLEXL").textContent = data.FLEX.losses;
+                    } else {
+                    document.getElementById("FLEXQueue").textContent = "Unranked Flex";
+                    };
+
+                if (data.FIVE) {
+                    document.getElementById("FIVEQueue").textContent = data.FIVE.queueType;
+                    document.getElementById("FIVETier").textContent = data.FIVE.tier;
+                    document.getElementById("FIVERank").textContent = data.FIVE.rank;
+                    document.getElementById("FIVELP").textContent = data.FIVE.leaguePoints;
+                    document.getElementById("FIVEW").textContent = data.FIVE.wins;
+                    document.getElementById("FIVEL").textContent = data.FIVE.losses;
+                    } else {
+                    document.getElementById("FIVEQueue").textContent = "Unranked Premade 5v5";
+                    };
+                
+                if (data.CLASSIC) {
+                    document.getElementById("CLASSICQueue").textContent = data.CLASSIC.queueType;
+                    document.getElementById("CLASSICTier").textContent = data.CLASSIC.tier;
+                    document.getElementById("CLASSICRank").textContent = data.CLASSIC.rank;
+                    document.getElementById("CLASSICLP").textContent = data.CLASSIC.leaguePoints;
+                    document.getElementById("CLASSICW").textContent = data.CLASSIC.wins;
+                    document.getElementById("CLASSICL").textContent = data.CLASSIC.losses;
+                    } else {
+                    document.getElementById("CLASSICQueue").textContent = "Unranked Classic";
+                    };
 
                 document.getElementById("profileIcon").hidden = false;
             });
