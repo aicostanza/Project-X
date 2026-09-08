@@ -62,21 +62,12 @@ app.get("/riot/account", (req, res) => {
                                 }) .then(data => {
                                     console.log(data);
 
-                                        const SR = data.find(rank => rank.queueType === "RANKED_SOLO_5x5");
-                                        const FLEX = data.find(rank => rank.queueType === "RANKED_FLEX_SR");
-                                        const FIVE = data.find(rank => rank.queueType === "RANKED_PREMADE_5x5");
-                                        const CLASSIC = data.find(rank => rank.queueType === "JADE_RANKED_SOLO_5x5"); 
+                                        SR = data.find(rank => rank.queueType === "RANKED_SOLO_5x5");
+                                        FLEX = data.find(rank => rank.queueType === "RANKED_FLEX_SR");
+                                        FIVE = data.find(rank => rank.queueType === "RANKED_PREMADE_5x5");
+                                        CLASSIC = data.find(rank => rank.queueType === "JADE_RANKED_SOLO_5x5"); 
 
-                                    res.json({
-                                        gameName: GameName,
-                                        tagLine: TagLine,
-                                        profileIconId: profileIconId,
-                                        summonerLevel: summonerLevel,
 
-                                        SR,
-                                        FLEX,
-                                        FIVE,
-                                        CLASSIC
                                     })
 
                                     LOLMATCHv5 = `https://sea.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20`
@@ -87,7 +78,18 @@ app.get("/riot/account", (req, res) => {
                                     }) .then(response => {
                                         console.log(response.status);
                                         return response.json()
-                                    })
+                                    }) .then(data => {
+                                        console.log(data);
+                                        res.json({
+
+                                        gameName: GameName,
+                                        tagLine: TagLine,
+                                        profileIconId,
+                                        summonerLevel,
+                                        SR,
+                                        FLEX,
+                                        FIVE,
+                                        CLASSIC,
                                 })
                             })
       
