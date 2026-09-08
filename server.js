@@ -61,21 +61,11 @@ app.get("/riot/account", (req, res) => {
                                     return response.json()
                                 }) .then(data => {
                                     console.log(data);
-                                        const soloRank = data.find(rank => rank.queueType === "RANKED_SOLO_5x5");
-                                        let SDQueue = soloRank.queueType;
-                                        let SDTier = soloRank.tier;
-                                        let SDRank = soloRank.rank;
-                                        let SDLP = soloRank.leaguePoints;
-                                        let SDW = soloRank.wins;
-                                        let SDL = soloRank.losses;
 
-                                        const classicRank = data.find(rank => rank.queueType === "JADE_RANKED_SOLO_5x5");
-                                        let CLASSICQueue = classicRank.queueType;
-                                        let CLASSICTier = classicRank.tier;
-                                        let CLASSICRank = classicRank.rank;
-                                        let CLASSICLP = classicRank.leaguePoints;
-                                        let CLASSICW = classicRank.wins;
-                                        let CLASSICL = classicRank.losses;
+                                        const SR = data.find(rank => rank.queueType === "RANKED_SOLO_5x5");
+                                        const FLEX = data.find(rank => rank.queueType === "RANKED_FLEX_SR");
+                                        const FIVE = data.find(rank => rank.queueType === "RANKED_PREMADE_5x5");
+                                        const CLASSIC = data.find(rank => rank.queueType === "JADE_RANKED_SOLO_5x5"); 
 
                                     res.json({
                                         gameName: GameName,
@@ -83,12 +73,20 @@ app.get("/riot/account", (req, res) => {
                                         profileIconId: profileIconId,
                                         summonerLevel: summonerLevel,
 
-                                        queueType: SDQueue, classicQueue: CLASSICQueue,
-                                        tier: SDTier, classicTier: CLASSICTier,
-                                        rank: SDRank, classicRank: CLASSICRank,
-                                        leaguePoints: SDLP, classicLeaguePoints: CLASSICLP,
-                                        wins: SDW, classicWins: CLASSICW,
-                                        losses: SDL, classicLosses: CLASSICL
+                                        SR,
+                                        FLEX,
+                                        FIVE,
+                                        CLASSIC
+                                    })
+
+                                    LOLMATCHv5 = `https://sea.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20`
+                                    fetch(LOLMATCHv5, {
+                                        headers: {
+                                            "X-Riot-Token": process.env.RIOT_API_KEY
+                                        }
+                                    }) .then(response => {
+                                        console.log(response.status);
+                                        return response.json()
                                     })
                                 })
                             })
