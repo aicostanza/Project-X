@@ -19,8 +19,10 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "tailwindcss": "^4.3.3"
   }
 }
