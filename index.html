@@ -1,117 +1,59 @@
 <!DOCTYPE html>
-<html>
-    <body>
-        <label for="server">Select Server:</label>
-        <select name="server" id="server">
-            <option value="sg2">SEA Server</option>
-        </select>
+<html lang="en">
 
-        <input type="text" name="gameName" id="gameName" placeholder="Enter your In-game Name"> <!-- Text Box for IGN -->
-        <input type="text" name="tagLine" id="tagLine" placeholder="Enter your TagLine"> <!-- Text Box for IGN -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <title>Project X</title>
+</head>
 
-        <button id="search">Search</button>
+<body class="bg-slate-950">
+    <!-- Toast Container (Fixed Position) -->
+    <div id="toast-container"
+        class="fixed bottom-5 right-5 z-50 flex flex-col space-y-3 max-w-sm w-full pointer-events-none px-4"></div>
 
-        <p id="GameName"></p> 
-        <p id="TagLine"></p>
-        <img id ="profileIcon" alt = "league icon" hidden>
-        <p id="profileIconId"></p>        
-        <p id="summonerLevel"></p>
+    <aside id="vertical-navbar"
+        class="fixed top-0 left-0 right-0 h-screen min-h-screen w-[25vw] bg-slate-900 backdrop-blur-md border-r border-slate-800 transition-transform duration-100 ease-in-out -translate-x-full z-40">
+        <img src="https://placehold.co/100" alt="Project X img" srcset="" class="rounded-[100%] m-auto mt-3"
+            id="web-logo">
+        <button id="toggle-btn"
+            class="absolute top-[40%] -right-10 w-10 h-30 bg-slate-900 border-t border-r border-b border-slate-800 text-slate-300 flex items-center justify-center rounded-r-md shadow-lg hover:bg-slate-800 focus:outline-none">
+            <span id="toggle-icon" class="text-xl font-bold">›</span>
+        </button>
+        <form action="" method="get" class="flex flex-col text-center mt-6 text-[0.9rem] gap-1.5 pl-1.5 pr-1.5">
+            <select name="server" id="selectServer" class="w-fit bg-white rounded-sm cursor-pointer m-auto">
+                <option value="" disabled selected>Select Server</option>
+                <option value="br1">BR</option>
+                <option value="eun1">EUN</option>
+                <option value="euw1">EUW</option>
+                <option value="jp1">JP</option>
+                <option value="kr">KR</option>
+                <option value="la1">LAN</option>
+                <option value="la2">LAS</option>
+                <option value="na1">NA</option>
+                <option value="oc1">OCE</option>
+                <option value="tr1">TR</option>
+                <option value="ru">RUS</option>
+                <option value="sg2">SEA</option>
+                <option value="tw2">TW</option>
+                <option value="vn2">VN</option>
+            </select>
+            <div class="flex w-full justify-between">
+                <input type="text" name="inputRiotAccount" id="inputRiotAccount" placeholder="in-game Name#Tag"
+                    class="w-[75%]  pt-1.5 pb-1.5 pl-1.5 rounded-sm bg-white ml-1.5">
+                <button type="button" class="bg-amber-700 pt-1.5 pb-1.5 pl-3 pr-3 rounded-sm  cursor-pointer"
+                    id="search-btn">Search</button>
+            </div>
+        </form>
+        <main class="">
 
-        <p id="SRQueue"></p>
-        <p id="SRTier"></p>
-        <p id="SRRank"></p>
-        <p id="SRLP"></p>
-        <p id="SRW"></p>
-        <p id="SRL"></p>
+        </main>
+        <footer class="absolute bottom-0 backdrop-brightness-80 w-full">
+            <img src="https://placehold.co/75" alt="footer-icon" class="rounded-[100%]  m-2" id="footer-icon">
+        </footer>
+    </aside>
+    <script src="client.js"></script>
+</body>
 
-        <p id="FLEXQueue"></p>
-        <p id="FLEXTier"></p>
-        <p id="FLEXTier"></p>
-        <p id="FLEXLP"></p>
-        <p id="FLEXW"></p>
-        <p id="FLEXL"></p>
-
-        <p id="FIVEQueue"></p>
-        <p id="FIVETier"></p>
-        <p id="FIVERank"></p>
-        <p id="FIVELP"></p>
-        <p id="FIVEW"></p>
-        <p id="FIVEL"></p>
-
-        <p id="CLASSICQueue"></p>
-        <p id="CLASSICTier"></p>
-        <p id="CLASSICRank"></p>
-        <p id="CLASSICLP"></p>
-        <p id="CLASSICW"></p>
-        <p id="CLASSICL"></p>        
-
-        <script>
-        document.getElementById("search").addEventListener("click", function () {
-
-        const gameName = document.getElementById("gameName").value;
-        const tagLine = document.getElementById("tagLine").value;
-        const server = document.getElementById("server").value;
-
-        fetch(`http://localhost:2106/riot/account?gameName=${gameName}&tagLine=${tagLine}&server=${server}`)
-        .then(response => {
-           console.log(response.status);
-           return response.json();
-            })
-            .then(data => {
-                console.log(data);
-                
-                document.getElementById("TagLine").textContent = data.tagLine
-                document.getElementById("GameName").textContent = data.gameName
-                document.getElementById("profileIconId").textContent = data.profileIconId;
-                document.getElementById("profileIcon").src = `https://ddragon.leagueoflegends.com/cdn/16.17.1/img/profileicon/${data.profileIconId}.png`;
-                document.getElementById("summonerLevel").textContent =data.summonerLevel;
-
-                if (data.SR) {
-                    document.getElementById("SRQueue").textContent = data.SR.queueType;
-                    document.getElementById("SRTier").textContent = data.SR.tier;
-                    document.getElementById("SRRank").textContent = data.SR.rank;
-                    document.getElementById("SRLP").textContent = data.SR.leaguePoints;
-                    document.getElementById("SRW").textContent = data.SR.wins;
-                    document.getElementById("SRL").textContent = data.SR.losses;
-                    } else {
-                    document.getElementById("SRQueue").textContent = "Unranked Solo/Duo";
-                    };
-                
-                if (data.FLEX) {
-                    document.getElementById("FLEXQueue").textContent = data.FLEX.queueType;
-                    document.getElementById("FLEXTier").textContent = data.FLEX.tier;
-                    document.getElementById("FLEXLP").textContent = data.FLEX.leaguePoints;
-                    document.getElementById("FLEXW").textContent = data.FLEX.wins;
-                    document.getElementById("FLEXL").textContent = data.FLEX.losses;
-                    } else {
-                    document.getElementById("FLEXQueue").textContent = "Unranked Flex";
-                    };
-
-                if (data.FIVE) {
-                    document.getElementById("FIVEQueue").textContent = data.FIVE.queueType;
-                    document.getElementById("FIVETier").textContent = data.FIVE.tier;
-                    document.getElementById("FIVERank").textContent = data.FIVE.rank;
-                    document.getElementById("FIVELP").textContent = data.FIVE.leaguePoints;
-                    document.getElementById("FIVEW").textContent = data.FIVE.wins;
-                    document.getElementById("FIVEL").textContent = data.FIVE.losses;
-                    } else {
-                    document.getElementById("FIVEQueue").textContent = "Unranked Premade 5v5";
-                    };
-                
-                if (data.CLASSIC) {
-                    document.getElementById("CLASSICQueue").textContent = data.CLASSIC.queueType;
-                    document.getElementById("CLASSICTier").textContent = data.CLASSIC.tier;
-                    document.getElementById("CLASSICRank").textContent = data.CLASSIC.rank;
-                    document.getElementById("CLASSICLP").textContent = data.CLASSIC.leaguePoints;
-                    document.getElementById("CLASSICW").textContent = data.CLASSIC.wins;
-                    document.getElementById("CLASSICL").textContent = data.CLASSIC.losses;
-                    } else {
-                    document.getElementById("CLASSICQueue").textContent = "Unranked Classic";
-                    };
-
-                document.getElementById("profileIcon").hidden = false;
-            });
-        });
-        </script>
-    </body>
 </html>
