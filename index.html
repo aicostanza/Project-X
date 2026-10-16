@@ -1,59 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/output.css">
-    <title>Project X</title>
-</head>
-
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="css/output.css"><title>Project X | Champions & Skins</title></head>
 <body class="bg-slate-950">
-    <!-- Toast Container (Fixed Position) -->
-    <div id="toast-container"
-        class="fixed bottom-5 right-5 z-50 flex flex-col space-y-3 max-w-sm w-full pointer-events-none px-4"></div>
-
-    <aside id="vertical-navbar"
-        class="fixed top-0 left-0 right-0 h-screen min-h-screen w-[25vw] bg-slate-900 backdrop-blur-md border-r border-slate-800 transition-transform duration-100 ease-in-out -translate-x-full z-40">
-        <img src="https://placehold.co/100" alt="Project X img" srcset="" class="rounded-[100%] m-auto mt-3"
-            id="web-logo">
-        <button id="toggle-btn"
-            class="absolute top-[40%] -right-10 w-10 h-30 bg-slate-900 border-t border-r border-b border-slate-800 text-slate-300 flex items-center justify-center rounded-r-md shadow-lg hover:bg-slate-800 focus:outline-none">
-            <span id="toggle-icon" class="text-xl font-bold">›</span>
-        </button>
-        <form action="" method="get" class="flex flex-col text-center mt-6 text-[0.9rem] gap-1.5 pl-1.5 pr-1.5">
-            <select name="server" id="selectServer" class="w-fit bg-white rounded-sm cursor-pointer m-auto">
-                <option value="" disabled selected>Select Server</option>
-                <option value="br1">BR</option>
-                <option value="eun1">EUN</option>
-                <option value="euw1">EUW</option>
-                <option value="jp1">JP</option>
-                <option value="kr">KR</option>
-                <option value="la1">LAN</option>
-                <option value="la2">LAS</option>
-                <option value="na1">NA</option>
-                <option value="oc1">OCE</option>
-                <option value="tr1">TR</option>
-                <option value="ru">RUS</option>
-                <option value="sg2">SEA</option>
-                <option value="tw2">TW</option>
-                <option value="vn2">VN</option>
-            </select>
-            <div class="flex w-full justify-between">
-                <input type="text" name="inputRiotAccount" id="inputRiotAccount" placeholder="in-game Name#Tag"
-                    class="w-[75%]  pt-1.5 pb-1.5 pl-1.5 rounded-sm bg-white ml-1.5">
-                <button type="button" class="bg-amber-700 pt-1.5 pb-1.5 pl-3 pr-3 rounded-sm  cursor-pointer"
-                    id="search-btn">Search</button>
-            </div>
-        </form>
-        <main class="">
-
-        </main>
-        <footer class="absolute bottom-0 backdrop-brightness-80 w-full">
-            <img src="https://placehold.co/75" alt="footer-icon" class="rounded-[100%]  m-2" id="footer-icon">
-        </footer>
-    </aside>
-    <script src="client.js"></script>
-</body>
-
-</html>
+<div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-3 max-w-sm w-full pointer-events-none px-4"></div>
+<aside id="vertical-navbar" class="fixed top-0 left-0 right-0 h-screen min-h-screen w-[25vw] bg-slate-900 border-r border-slate-800 transition-transform duration-100 ease-in-out -translate-x-full z-40">
+<img src="https://placehold.co/100" alt="Project X" class="rounded-full m-auto mt-3" id="web-logo">
+<button id="toggle-btn" class="absolute top-[40%] -right-10 w-10 h-30 bg-slate-900 border border-slate-800 text-slate-300 rounded-r-md"><span id="toggle-icon">›</span></button>
+<form class="flex flex-col text-center mt-6 gap-2 px-2" onsubmit="return false">
+<select id="selectServer" class="bg-white text-black rounded-sm"><option value="" disabled selected>Select Server</option><option value="br1">BR</option><option value="eun1">EUN</option><option value="euw1">EUW</option><option value="jp1">JP</option><option value="kr">KR</option><option value="la1">LAN</option><option value="la2">LAS</option><option value="na1">NA</option><option value="oc1">OCE</option><option value="tr1">TR</option><option value="ru">RUS</option><option value="sg2">SG</option><option value="ph2">PH</option><option value="tw2">TW</option><option value="vn2">VN</option></select>
+<div class="flex gap-2"><input id="inputRiotAccount" placeholder="Name#Tag" class="min-w-0 flex-1 bg-white text-black rounded-sm p-2"><button type="button" id="search-btn" class="bg-amber-700 p-2 rounded-sm">Search</button></div></form>
+</aside>
+<main></main>
+<script src="client.js"></script><script src="catalog.js"></script>
+</body></html>
